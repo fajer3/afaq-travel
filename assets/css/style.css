@@ -5,7 +5,7 @@
   --green:#0b3d2e;
   --green2:#0f4b39;
   --beige:#efe6d6;
-  --white:#ffffff;
+  --white:#fbfbfb;
   --ink:#0f1f18;
   --muted:#55655b;
 
@@ -28,10 +28,7 @@ body{
   direction: rtl;
   color:var(--ink);
   font-family:"IBM Plex Sans Arabic", system-ui, -apple-system, Segoe UI, Arial;
-  background:
-    radial-gradient(1200px 600px at 80% -10%, rgba(11,61,46,0.20), transparent 55%),
-    radial-gradient(900px 500px at 10% 0%, rgba(184,148,94,0.16), transparent 60%),
-    linear-gradient(180deg, var(--beige), #fff 40%, #fff);
+background: linear-gradient(180deg, #e1d5c9, #e3d6ca);
 }
 
 a{color:inherit;text-decoration:none}
@@ -39,10 +36,11 @@ a{color:inherit;text-decoration:none}
 
 /* ===== Header ===== */
 .header{
+padding: 8px 0;
   position: sticky;
   top: 0;
-  z-index: 50;
-  background: #0b3d2e;
+  z-index: 30;
+  background: #16361a   ;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .topbar{
@@ -51,12 +49,17 @@ a{color:inherit;text-decoration:none}
 }
 
 .brand{display:flex; align-items:center; gap:12px}
-.brand img{width:46px;height:46px;filter: drop-shadow(0 10px 18px rgba(0,0,0,0.08))}
+.brand img{width:100px;height:100px;background: transparent;   /* يشيل الخلفية */
+  padding:0;                  /* يشيل المسافات */
+  border:none;                /* يشيل البرواز */
+  box-shadow:none;            /* يشيل الظل */
+  filter:none;                /* يشيل تأثير الظل الحالي */
+}
 .brand h1{
   margin:0;
   font-family:"El Messiri", serif;
-  font-size:20px;
-  color:var(--green);
+  font-size:30px;
+  color:white;
   letter-spacing:0.3px;
 }
 .brand p{margin:0;font-size:12px;color:var(--muted)}
@@ -73,7 +76,7 @@ a{color:inherit;text-decoration:none}
 }
 .nav a:hover{
   border-color: var(--line2);
-  background: rgba(255,255,255,0.85);
+  background: #a89154;
   transform: translateY(-1px);
 }
 .nav a.active{
@@ -97,7 +100,7 @@ a{color:inherit;text-decoration:none}
   border-radius:16px;
   border:1px solid var(--line);
   margin-top:10px;
-  background:#fff;
+  background:rgba(255,255,255,0.88);
 }
 
 /* ===== Premium Panels ===== */
@@ -263,14 +266,28 @@ a{color:inherit;text-decoration:none}
 }
 
 /* ===== Destinations ===== */
+/* خليه Grid ترتيب أعمدة ثابت: يسار ثم يمين */
 .destWrap{
-  display:grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap:14px;
-  align-items:start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "panel map";   /* ✅ يسار = panel ، يمين = map */
+  gap: 14px;
+  align-items: start;
 }
-@media (max-width: 900px){ .destWrap{grid-template-columns:1fr} }
 
+/* نثبت كل عنصر بمكانه */
+#destPanel{ grid-area: panel; }
+.mapBox{ grid-area: map; }
+
+/* موبايل: تحت بعض */
+@media (max-width: 900px){
+  .destWrap{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "map"
+      "panel";
+  }
+}
 .chips{display:flex; gap:10px; flex-wrap:wrap}
 .chip{
   padding:10px 12px;
@@ -396,10 +413,9 @@ a{color:inherit;text-decoration:none}
 }
 
 .logo{
-  width:72px;
-  height:72px;
+  width: 150px;
+  height: 150px;
   object-fit:contain;
-  border-radius:18px;
   background:white;
   padding:6px;
   box-shadow:0 12px 28px rgba(0,0,0,0.12);
@@ -486,3 +502,134 @@ a{color:inherit;text-decoration:none}
 .hotspot.active .hotspot-dot{
   fill: rgba(11,61,46,0.95);
 }
+/* HERO SECTION */
+.hero {
+  height: 100vh;
+  background: url("../img/hero.jpg") center/cover no-repeat;
+  position: relative;
+}
+
+.hero-overlay {
+  background: rgba(0,0,0,0.45);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 20px;
+  max-width: 700px;
+  margin-bottom: 25px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  background: #1f5c3a;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid white;
+}
+.chip{ padding:8px 12px; border-radius:999px; border:1px solid #ddd; background:#fff; cursor:pointer; }
+.chip.active{ border-color:#8a5a2b; }
+
+.cityRow{ width:100%; text-align:right; padding:10px 12px; border:1px solid #eee; border-radius:12px; background:#fff; cursor:pointer; margin:6px 0; }
+
+.pkgCard{ border:1px solid #eee; border-radius:14px; padding:12px; margin:10px 0; background:#fff; }
+.empty{ opacity:.7; padding:10px; }
+/* خلي الشكل الكبير ما يلقط الضغط */
+#ksaOutline { pointer-events: none; }
+
+/* خلّي نقاط الخريطة قابلة للضغط */
+#ksaMap .hotspot { pointer-events: all; cursor: pointer; }
+
+/* عشان الدائرة والنص يضغطون برضو */
+#ksaMap .hotspot-dot,
+#ksaMap .hotspot-label { pointer-events: all; }
+#ksaOutline { pointer-events: none; }
+
+#ksaMap .hotspot,
+#ksaMap .hotspot-dot,
+#ksaMap .hotspot-label { pointer-events: all; cursor: pointer; }
+.hotspot.active .hotspot-dot { transform: scale(1.15); }
+.ksaMapWrap{
+  position: relative;
+  width: 100%;
+  max-width: 560px;  /* عدّليه حسب تصميمك */
+  margin: 0 auto;
+}
+
+.ksaMapImg{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hotspotBtn{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 2px solid #fff;
+  background: #0f3d33;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,.12);
+}
+.hotspotBtn:hover{ transform: translate(-50%, -50%) scale(1.05); }
+.mapImgWrap{
+  position: relative;
+}
+
+.hotspotBtn{
+  position: absolute;
+  transform: translate(-50%, -50%);
+}.mapHint{
+  margin-top: 20px;
+  text-align: center;
+}
+.hotspotBtn{
+  transition: 0.2s;
+}
+
+.hotspotBtn:hover{
+  transform: translate(-50%, -50%) scale(1.08);
+}
+.mapBox{ position:relative; }
+
+.ksaImg{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.hotspotBtn{
+  position:absolute;
+  transform: translate(-50%, -50%);
+}
+.mapBox{ position:relative; }
+.ksaImg{ width:100%; height:auto; display:block; }
+.hotspotBtn{ position:absolute; transform:translate(-50%,-50%); }
+.mapBox{ width: 100%; }
+.ksaImg{ width: 100%; height: auto; display: block; }
+.card { background: rgba(255,255,255,0.92); }

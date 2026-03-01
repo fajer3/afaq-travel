@@ -11,7 +11,7 @@
     <div class="container">
       <div class="topbar">
         <a class="brand" href="index.html">
-          <img src="./assets/img/logo.png" alt="آفاق السفر" class="logo" />
+          <img src="assets/img/logo.png" alt="آفاق السفر" class="logo" />
           <div>
             <h1 class="brandName">آفاق السفر</h1>
             <p class="brandTagline">—</p>
@@ -46,64 +46,38 @@
       <p class="muted">اختاري منطقة من الخريطة أو من الأزرار، ثم اضغطي على مدينة لعرض باقاتها.</p>
     </div>
 
-    <section class="destWrap" style="margin-top:14px;">
-     <div class="mapBox">
-  <svg id="ksaMap" viewBox="0 0 600 700" role="img" aria-label="خريطة المملكة العربية السعودية">
-    <!-- شكل السعودية (Stylized) -->
-    <path id="ksaOutline" class="ksa-outline"
-      d="M160 120
-         L250 90 L330 110 L410 160 L470 250
-         L520 320 L540 420 L500 540
-         L420 620 L310 650 L220 620
-         L180 560 L140 470 L130 360
-         L150 250 Z"/>
+ <section class="destWrap" style="margin-top:14px;">
 
-    <!-- نقاط تفاعلية للمناطق -->
-    <!-- مكة -->
-    <g class="hotspot" data-region="makkah">
-      <circle class="hotspot-dot" cx="245" cy="360" r="11"></circle>
-      <text class="hotspot-label" x="265" y="365">مكة</text>
-    </g>
+  <!-- ✅ لوحة الخيارات (يسار) -->
+  <div id="destPanel" class="panel">
+    <div class="chips" id="regionList"></div>
 
-    <!-- الرياض -->
-    <g class="hotspot" data-region="riyadh">
-      <circle class="hotspot-dot" cx="345" cy="330" r="11"></circle>
-      <text class="hotspot-label" x="365" y="335">الرياض</text>
-    </g>
+    <h3 class="sectionTitle" id="regionTitle">—</h3>
+    <p class="muted" id="regionHint">—</p>
 
-    <!-- عسير -->
-    <g class="hotspot" data-region="asir">
-      <circle class="hotspot-dot" cx="260" cy="470" r="11"></circle>
-      <text class="hotspot-label" x="280" y="475">عسير</text>
-    </g>
+    <div class="cityList" id="cityList"></div>
+    <div class="packagesBox" id="packagesBox"></div>
+  </div>
 
-    <!-- الشرقية -->
-    <g class="hotspot" data-region="eastern">
-      <circle class="hotspot-dot" cx="440" cy="335" r="11"></circle>
-      <text class="hotspot-label" x="460" y="340">الشرقية</text>
-    </g>
-  </svg>
+  <!-- ✅ الخريطة (يمين) -->
+  <div class="mapBox">
+    <img src="assets/img/ksa-real.png" class="ksaImg" alt="خريطة السعودية" />
 
-  <p class="muted" style="margin:10px 0 0">اضغطي على نقطة المنطقة لعرض المدن والباقات المقترحة.</p>
-</div>
+    <!-- ✅ hotspots فوق الصورة (لازم تكون داخل mapBox) -->
+    <button class="hotspotBtn" data-region="makkah"  style="left:30%; top:52%;">مكة</button>
+    <button class="hotspotBtn" data-region="riyadh"  style="left:40.6%; top:40.2%;">الرياض</button>
+    <button class="hotspotBtn" data-region="eastern" style="left:65%; top:46%;">الشرقية</button>
+    <button class="hotspotBtn" data-region="asir"    style="left:42.9%; top:63.4%;">عسير</button>
 
-      <div id="destPanel" class="panel">
-        <div class="chips" id="regionList"></div>
+    <p class="muted mapHint">اضغطي على المنطقة لعرض المدن والباقات.</p>
+  </div>
 
-        <h3 class="sectionTitle" id="regionTitle">—</h3>
-        <p class="muted" id="regionHint">—</p>
-
-        <div class="cityList" id="cityList"></div>
-      </div>
-    </section>
-
+</section>
     <footer class="footer">
       <div>© <span id="year"></span> <span class="brandName">آفاق السفر</span></div>
     </footer>
   </main>
-<script src="./assets/js/app.js"></script> 
+
   <script type="module" src="assets/js/app.js"></script>
 </body>
-
 </html>
-
