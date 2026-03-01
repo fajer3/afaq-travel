@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>التواصل والحجز | آفاق السفر</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="topbar">
+        <a class="brand" href="index.html">
+          <img src="assets/img/logo.svg" alt="Logo" />
+          <div>
+            <h1 class="brandName">آفاق السفر</h1>
+            <p class="brandTagline">—</p>
+          </div>
+        </a>
+
+        <nav class="nav">
+          <a data-nav href="index.html">من نحن</a>
+          <a data-nav href="destinations.html">وجهاتنا</a>
+          <a data-nav href="packages.html">الباقات</a>
+          <a data-nav href="guides.html">المرشدين</a>
+          <a data-nav href="why.html">لماذا آفاق السفر</a>
+          <a data-nav href="contact.html">التواصل والحجز</a>
+        </nav>
+
+        <button id="menuBtn" class="menuBtn">القائمة</button>
+      </div>
+      <div id="mobileNav" class="mobileNav">
+        <a data-nav href="index.html">من نحن</a>
+        <a data-nav href="destinations.html">وجهاتنا</a>
+        <a data-nav href="packages.html">الباقات</a>
+        <a data-nav href="guides.html">المرشدين</a>
+        <a data-nav href="why.html">لماذا آفاق السفر</a>
+        <a data-nav href="contact.html">التواصل والحجز</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="grid3" style="margin-top:14px; grid-template-columns: 1fr 1fr 1fr;">
+      <div class="panel">
+        <h2 class="hTitle">التواصل</h2>
+        <p class="muted">هذه بيانات تجريبية لمشروع التخرج (تقدرين تعدلينها).</p>
+        <ul class="bullets">
+          <li>البريد: afaq@demo.com</li>
+          <li>الهاتف: 0500000000</li>
+          <li>المنصات: @AfaqTravel</li>
+        </ul>
+
+        <div class="notice" style="margin-top:12px;">
+          <strong>حسابك الحالي:</strong>
+          <div id="currentUser" class="muted" style="margin-top:6px;">—</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2 class="hTitle">إنشاء حساب (تجريبي)</h2>
+        <p class="muted">يتم حفظ البيانات محلياً داخل المتصفح فقط (LocalStorage).</p>
+
+        <form id="signupForm" style="display:grid; gap:10px; margin-top:10px;">
+          <input id="suName" class="input" placeholder="الاسم الكامل" required />
+          <input id="suEmail" class="input" type="email" placeholder="البريد الإلكتروني" required />
+          <input id="suPass" class="input" type="password" placeholder="كلمة المرور (6+)" minlength="6" required />
+          <button class="btn" type="submit">إنشاء الحساب</button>
+        </form>
+      </div>
+
+      <div class="panel" id="booking">
+        <h2 class="hTitle">حجز تجريبي</h2>
+        <div id="demoBookingBox" style="margin-top:10px;"></div>
+
+        <form id="bookingForm" style="display:grid; gap:10px; margin-top:12px;">
+          <input id="bkPackage" class="input" placeholder="اسم الباقة" required />
+          <input id="bkCity" class="input" placeholder="المدينة" required />
+          <input id="bkDate" class="input" type="date" required />
+          <select id="bkPeople">
+            <option value="1">1 شخص</option>
+            <option value="2">2 أشخاص</option>
+            <option value="3">3 أشخاص</option>
+            <option value="4">4 أشخاص</option>
+            <option value="5+">5+</option>
+          </select>
+          <textarea id="bkNotes" class="input" rows="3" placeholder="ملاحظات إضافية (اختياري)"></textarea>
+          <button class="btn" type="submit">إرسال الحجز التجريبي</button>
+        </form>
+
+        <p class="muted" style="margin-top:10px; line-height:1.8;">
+          * الهدف من الصفحة توضيح فكرة النظام في العرض للمشرفة: إنشاء حساب + اختيار باقة + حجز تجريبي.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> <span class="brandName">آفاق السفر</span></div>
+    </footer>
+  </main>
+
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
